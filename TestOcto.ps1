@@ -1,11 +1,2 @@
-param(
-    [string]$Prenom,
-    [string]$Nom,
-    [string]$NumeroEmp,
-    [string]$Poste
-)
-
-$PSDefaultParameterValues['Out-File:Encoding'] = 'UTF8'
-
-Write-Host Prenom: $Prenom Nom: $Nom Numero: $NumeroEmp Poste: $Poste
+Write-Host Prenom: $args[0] Nom: $args[1]
 Read-Host -Prompt "Press any key to continue"
