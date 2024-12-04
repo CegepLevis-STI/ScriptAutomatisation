@@ -5,4 +5,4 @@ param(
     $Poste = $args[3]
 )
 
-Write-Host Prenom: $Prenom Nom: $Nom Numero: $Numero Poste: $Poste
+Write-Host Prenom: $Prenom Nom: $Nom Numero: $NumeroEmp Poste: $Poste
