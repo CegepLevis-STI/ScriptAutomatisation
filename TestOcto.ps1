@@ -7,4 +7,5 @@ param(
 
 $PSDefaultParameterValues['Out-File:Encoding'] = 'UTF8'
 
-[System.Windows.MessageBox]::Show($Prenom + " " + $Nom + " " + $NumeroEmp + " " + $Poste)
+Write-Host $Prenom + " " + $Nom + " " + $NumeroEmp + " " + $Poste
+Read-Host -Prompt "Press any key to continue"
