@@ -7,5 +7,5 @@ param(
 
 $PSDefaultParameterValues['Out-File:Encoding'] = 'UTF8'
 
-Write-Host $Prenom $Nom $NumeroEmp $Poste
+Write-Host Prenom: $Prenom Nom: $Nom Numero: $NumeroEmp Poste: $Poste
 Read-Host -Prompt "Press any key to continue"
