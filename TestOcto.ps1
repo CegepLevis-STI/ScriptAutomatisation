@@ -6,3 +6,4 @@ param(
 )
 
 Write-Host Prenom: $Prenom Nom: $Nom Numero: $NumeroEmp Poste: $Poste
+Read-Host Entrer pour continuer.
