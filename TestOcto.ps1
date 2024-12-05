@@ -7,4 +7,3 @@ param(
 
 $OutputTest = "Prenom: " + $Prenom + " Nom: " + $Nom + " Numero: " + $NumeroEmp + " Poste: " + $Poste + "."
 Write-Host $OutputTest
-Read-Host Entrer pour continuer
