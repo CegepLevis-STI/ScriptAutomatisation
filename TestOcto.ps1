@@ -2,10 +2,11 @@ param(
     $Prenom = $args[0],
     $Nom = $args[1],
     $NumeroEmp = $args[2],
-    $Poste = $args[3]
+    $Departement =  $args[3],
+    $Poste = $args[4]
 )
 
 #  test
 
-$OutputTest = "Prenom: " + $Prenom + " Nom: " + $Nom + " Numero: " + $NumeroEmp + " Poste: " + $Poste + "."
-Write-Host $OutputTest
+$OutputTest = "Prenom: " + $Prenom + " Nom: " + $Nom + " Numero: " + $NumeroEmp + " Departement: " + $Departement + " Poste: " + $Poste + "."
+Read-Host $OutputTest
