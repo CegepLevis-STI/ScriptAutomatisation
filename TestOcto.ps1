@@ -8,22 +8,42 @@ param(
 
 #  test
 
-$OutputTest = "Prenom: " + $Prenom + " Nom: " + $Nom + " Numero: " + $NumeroEmp + " Departement: " + $Departement + " Poste: " + $Poste + "."
-Read-Host $OutputTest
+$ListeDept = [ordered]@{
+    'Département de physique et géologie'='Phys'
+    'Approvisionnement'='Appro'
+    'Service du cheminement et de l''organisation scolaires'='Scos'
+}
+$ListePoste_Appro = [ordered]@{
+    'Acheteur/Acheteuse'='group1', 'group2'
+    'Agent/Agente'='group3', 'group4'
+    'Coordonnateur/Coordonatrice'='group5', 'group6'
+}
 
-$ListDept = 'Département de physique et géologie', 'Approvisionnement', 'Service du cheminement et de l''organisation scolaires'
-$ListPoste_Approvisionnement = 'Acheteur/Acheteuse', 'Agent/Agente', 'Coordonnateur/Coordonatrice'
+$ListePoste_Phys = [ordered]@{
+'Prof'='group1', 'group2'
+'Tech'='group3', 'group4'
+'Coordonnateur/Coordonatrice'='group5', 'group6'
+}
 
-foreach ($Dept in $ListDept) {
-    if ($Departement -eq $Dept)
+$ListePoste_Scos = [ordered]@{
+'AidePed'='group1', 'group2'
+'Agent/Agente'='group3', 'group4'
+'Coordonnateur/Coordonatrice'='group5', 'group6'
+}
+
+foreach ($Dept in $ListeDept.Keys) {
+if ($Departement -like $Dept)
+{
+$ListePoste = 'ListePoste_' + $ListeDept[$Departement]
+foreach ($PosteDept in ((Get-Variable -Name $ListePoste).Value).Keys)
+{
+if ($Poste -like $PosteDept)
+{
+    foreach ($groupeAD in ((Get-Variable -Name $ListePoste).Value)[$Poste])
     {
-        foreach ($PosteDept in (Get-Variable -Name "ListPoste_$Dept").Value)
-        {
-            if ($Poste -eq $PosteDept)
-            {
-                Write-Host "Le poste de la personne est $PosteDept et elle fait partie du déparement $Dept"
-                Read-Host "Enter"
-            }
-        }
+        Write-Host Ajouter le groupe $groupeAD à $Prenom $Nom '('$NumeroEmp' )'
     }
+}
+}
+}
 }
