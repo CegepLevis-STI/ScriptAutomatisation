@@ -19,7 +19,7 @@ foreach ($Dept in $ListDept) {
     {
         foreach ($PosteDept in (Get-Variable -Name "ListPoste_$Dept").Value)
         {
-            if ($Poste -eq $Poste)
+            if ($Poste -eq $PosteDept)
             {
                 Write-Host "Le poste de la personne est $PosteDept et elle fait partie du déparement $Dept"
                 Read-Host "Enter : "
