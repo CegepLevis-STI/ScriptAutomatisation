@@ -22,7 +22,7 @@ foreach ($Dept in $ListDept) {
             if ($Poste -eq $PosteDept)
             {
                 Write-Host "Le poste de la personne est $PosteDept et elle fait partie du déparement $Dept"
-                Read-Host "Enter : "
+                Read-Host "Enter"
             }
         }
     }
