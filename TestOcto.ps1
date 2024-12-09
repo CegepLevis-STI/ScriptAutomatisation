@@ -14,11 +14,11 @@ $ListeDept = [ordered]@{
     'Service du cheminement et de l''organisation scolaires'='Scos'
 }
 
-$ListeGroup_Appro = @('GroupAppro1', 'GroupAppro2')
+$ListeGroupe_Appro = @('GroupeAppro1', 'GroupeAppro2')
 
-$ListeGroup_Phys = @('GroupPhys1', 'GroupPhys2')
+$ListeGroupe_Phys = @('GroupePhys1', 'GroupePhys2')
 
-$ListeGroup_Scos = @('GroupScos1', 'GroupScos2')
+$ListeGroupe_Scos = @('GroupeScos1', 'GroupeScos2')
 
 $ListePoste_Appro = [ordered]@{
     'Acheteur/Acheteuse'='group1', 'group2'
@@ -41,8 +41,7 @@ $ListePoste_Scos = [ordered]@{
 foreach ($Dept in $ListeDept.Keys) {
     if ($Departement -like $Dept)
         {
-        $ListePoste = 'ListePoste_' + $ListeDept[$Departement]
-        foreach ($PosteDept in ((Get-Variable -Name $ListePoste).Value).Keys)
+        foreach ($PosteDept in ((Get-Variable -Name ('ListePoste_' + $ListeDept[$Departement])).Value).Keys)
             {
                 if ($Poste -like $PosteDept)
                 {
@@ -50,14 +49,12 @@ foreach ($Dept in $ListeDept.Keys) {
                     {
                         Write-Host Ajouter le groupe $groupeAD à $Prenom $Nom '('$NumeroEmp' )'
                     }
+
+                    foreach ($GroupDept in (Get-Variable -Name ('ListeGroupe_' + $ListeDept[$Departement])).Value)
+                    {
+                        Write-Host Ajouter le groupe $GroupDept à $Prenom $Nom '('$NumeroEmp' )'
+                    }
                 }
             }
         }
-
-        $ListeGroupeDept = 'ListePoste_' + $ListeDept[$Departement]
-        foreach ($GroupDept in $ListeGroupeDept)
-        {
-            Write-Host Ajouter le groupe $GroupDept à $Prenom $Nom '('$NumeroEmp' )'
-        }
-    }
 }
