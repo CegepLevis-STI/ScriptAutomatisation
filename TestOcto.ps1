@@ -13,6 +13,13 @@ $ListeDept = [ordered]@{
     'Approvisionnement'='Appro'
     'Service du cheminement et de l''organisation scolaires'='Scos'
 }
+
+$ListeGroup_Appro = @('GroupAppro1', 'GroupAppro2')
+
+$ListeGroup_Phys = @('GroupPhys1', 'GroupPhys2')
+
+$ListeGroup_Scos = @('GroupScos1', 'GroupScos2')
+
 $ListePoste_Appro = [ordered]@{
     'Acheteur/Acheteuse'='group1', 'group2'
     'Agent/Agente'='group3', 'group4'
