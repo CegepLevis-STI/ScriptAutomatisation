@@ -41,20 +41,19 @@ $ListePoste_Scos = [ordered]@{
 foreach ($Dept in $ListeDept.Keys) {
     if ($Departement -like $Dept)
         {
-        foreach ($PosteDept in ((Get-Variable -Name ('ListePoste_' + $ListeDept[$Departement])).Value).Keys)
-            {
-                if ($Poste -like $PosteDept)
+            foreach ($PosteDept in ((Get-Variable -Name ('ListePoste_' + $ListeDept[$Departement])).Value).Keys)
                 {
-                    foreach ($groupeAD in ((Get-Variable -Name ('ListePoste_' + $ListeDept[$Departement])).Value)[$Poste])
+                    if ($Poste -like $PosteDept)
                     {
-                        Write-Host Ajouter le groupe $groupeAD à $Prenom $Nom '('$NumeroEmp' )'
-                    }
-
-                    foreach ($GroupDept in (Get-Variable -Name ('ListeGroupe_' + $ListeDept[$Departement])).Value)
-                    {
-                        Write-Host Ajouter le groupe $GroupDept à $Prenom $Nom '('$NumeroEmp' )'
+                        foreach ($groupeAD in ((Get-Variable -Name ('ListePoste_' + $ListeDept[$Departement])).Value)[$Poste])
+                        {
+                            Write-Host Ajouter le groupe $groupeAD à $Prenom $Nom '('$NumeroEmp' )'
+                        }
                     }
                 }
-            }
+            foreach ($GroupDept in (Get-Variable -Name ('ListeGroupe_' + $ListeDept[$Departement])).Value)
+                {
+                    Write-Host Ajouter le groupe $GroupDept à $Prenom $Nom '('$NumeroEmp' )'
+                }
         }
 }
