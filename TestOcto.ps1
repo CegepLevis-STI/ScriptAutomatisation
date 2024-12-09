@@ -2,7 +2,7 @@ param(
     $Prenom = $args[0],
     $Nom = $args[1],
     $NumeroEmp = $args[2],
-    $Departement =  $args[3],
+    $Departement = $args[3],
     $Poste = $args[4]
 )
 
@@ -45,7 +45,7 @@ foreach ($Dept in $ListeDept.Keys) {
             {
                 if ($Poste -like $PosteDept)
                 {
-                    foreach ($groupeAD in ((Get-Variable -Name $ListePoste).Value)[$Poste])
+                    foreach ($groupeAD in ((Get-Variable -Name ('ListePoste_' + $ListeDept[$Departement])).Value)[$Poste])
                     {
                         Write-Host Ajouter le groupe $groupeAD à $Prenom $Nom '('$NumeroEmp' )'
                     }
